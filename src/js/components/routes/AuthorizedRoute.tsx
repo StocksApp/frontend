@@ -1,5 +1,7 @@
-import { Route, Redirect, RouteProps } from 'react-router';
 import React from 'react';
+import { Route, Redirect, RouteProps } from 'react-router';
+
+import { isAuthenticated } from '../../API/auth';
 
 export type AuthorizedRouteProps = RouteProps;
 

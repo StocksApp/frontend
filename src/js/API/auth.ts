@@ -1,1 +1,1 @@
-const isAuthenticated= () => true;
+export const isAuthenticated = (): boolean => true;
