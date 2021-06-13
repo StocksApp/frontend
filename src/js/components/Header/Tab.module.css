@@ -1,0 +1,15 @@
+.tab {
+  font-size: var(--s-font-size);
+  color: #000;
+  background-color: var(--lighter-gray);
+  border-radius: var(--m-border-radius);
+  text-decoration: none;
+  padding: 13px 0;
+  display: block;
+  text-align: center;
+  width: 200px;
+}
+
+.selected {
+  background-color: var(--salmon);
+}
