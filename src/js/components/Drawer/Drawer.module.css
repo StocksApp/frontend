@@ -1,0 +1,33 @@
+.drawer {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-brown);
+  width: 150px;
+  padding-top: 15px;
+}
+
+.icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  align-self: center;
+}
+
+.userName {
+  font-size: var(--s-font-size);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  align-self: center;
+  text-align: center;
+}
+
+.category {
+  background-color: var(--light-gray);
+  font-size: var(--s-font-size);
+  border: var(--normal-border);
+  border-radius: 0;
+  width: 100%;
+}
+
+

@@ -1,21 +1,19 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+
 import AuthorizedRoute from './components/routes/AuthorizedRoute';
-import { Header } from './components/Header';
+import { Login } from './views/Login';
 
 const Routes = () => {
   return (
-    <div>
-      <Header />
-      <Switch>
-        <Route path="/login">
-          <div>Login</div>
-        </Route>
-        <AuthorizedRoute path="/">
-          <div>Hejka</div>
-        </AuthorizedRoute>
-      </Switch>
-    </div>
+    <Switch>
+      <Route path="/login">
+        <Login />
+      </Route>
+      <AuthorizedRoute path="/">
+        <div>Hejka</div>
+      </AuthorizedRoute>
+    </Switch>
   );
 };
 

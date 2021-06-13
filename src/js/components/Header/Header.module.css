@@ -6,6 +6,8 @@
   background: var(--lightest-gray);
   box-shadow: 0px 4px 4px #0002;
   padding: 19px 26px;
+  position: relative;
+  z-index: 1;
 }
 
 .navigationTabs {

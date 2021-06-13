@@ -1,7 +1,7 @@
 import { Credentials } from '../models/interfaces';
 
 export const isAuthenticated = (): boolean => {
-  return !localStorage.getItem('credentials');
+  return !!localStorage.getItem('credentials');
 };
 
 export type AuthHeader = {

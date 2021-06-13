@@ -1,8 +1,4 @@
 :root {
-  --green: #78D17E;
-  --light-green: #D0FFD3;
-  --lightest-green: #F9FEFB;
-
   --black: #000;
   --darkest-gray: #454545;
   --gray: #7A7A7A;
@@ -12,7 +8,6 @@
   --lightest-gray: #FAFDFB;
 
   --salmon: #E8C8C8;
-  --heart-red: #FF6D6D;
-
+  --background-brown: #ECE9E9;
   --white: #FFFFFF;
 }

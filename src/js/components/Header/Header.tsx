@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 
-import { Tab } from '.';
+import { Tab } from '../common';
 import Icon from '../common/Icon';
 
 import styles from './Header.module.css';
+import { useLocation } from 'react-router';
+import { isAuthenticated } from '../../API/auth';
 
 enum HeaderState {
-  Stocks = 'Stocks',
-  Analysis = 'Analysis',
-  Forum = 'Forum',
-  Login = 'Login',
-  Default = '',
+  Stocks = 'stocks',
+  Analysis = 'analysis',
+  Forum = 'forum',
+  Login = 'login',
 }
 
 const Header = () => {
-  const [selected, setSelected] = useState<HeaderState>(HeaderState.Default);
+  const { pathname } = useLocation<{ pathname: string }>();
   return (
     <div className={styles.header}>
       <Icon url="../../../images/money.png" className={styles.icon} />
@@ -22,29 +23,27 @@ const Header = () => {
         <Tab
           text="Notowania"
           url="/stocks"
-          selected={selected === HeaderState.Stocks}
-          onClick={() => setSelected(HeaderState.Stocks)}
+          selected={pathname.includes(HeaderState.Stocks)}
         />
         <Tab
           text="Analiza Techniczna"
           url="/analysis"
-          selected={selected === HeaderState.Analysis}
-          onClick={() => setSelected(HeaderState.Analysis)}
+          selected={pathname.includes(HeaderState.Analysis)}
         />
         <Tab
           text="Forum"
           url="/forum"
-          selected={selected === HeaderState.Forum}
-          onClick={() => setSelected(HeaderState.Forum)}
+          selected={pathname.includes(HeaderState.Forum)}
         />
       </div>
-      <Tab
-        text="Login"
-        url="/login"
-        className={styles.rightContent}
-        selected={selected === HeaderState.Login}
-        onClick={() => setSelected(HeaderState.Login)}
-      />
+      {!isAuthenticated() && (
+        <Tab
+          text="Login"
+          url="/login"
+          className={styles.rightContent}
+          selected={pathname.includes(HeaderState.Login)}
+        />
+      )}
     </div>
   );
 };

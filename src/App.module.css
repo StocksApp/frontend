@@ -1,0 +1,18 @@
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.centralWrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.central {
+  margin: 40px 25px 50px;
+  background-color: var(--background-brown);
+  border-radius: var(--xl-border-radius);
+  flex-grow: 1;
+}
