@@ -2,17 +2,25 @@ import React, { useState } from 'react';
 
 import { loginUser } from '../../API/auth';
 
+import styles from './LoginForm.module.css';
+import { Input, SubmitButton } from '../common/inputs';
+import { useHistory } from 'react-router';
+
 const LoginForm = () => {
   const [password, setPassword] = useState('');
   const [login, setLogin] = useState('');
+  const history = useHistory();
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (password === '' || login === '') return;
     loginUser({ password, login });
+    history.push('/');
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="login">Login</label>
-      <input
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <Input.Label htmlFor="login">Login</Input.Label>
+      <Input
         type="text"
         id="login"
         name="login"
@@ -21,8 +29,8 @@ const LoginForm = () => {
           setLogin(e.target.value)
         }
       />
-      <label htmlFor="password">Hasło</label>
-      <input
+      <Input.Label htmlFor="password">Hasło</Input.Label>
+      <Input
         type="password"
         id="password"
         name="password"
@@ -31,7 +39,10 @@ const LoginForm = () => {
           setPassword(e.target.value)
         }
       />
-      <input type="submit" value="Submit" />
+      <SubmitButton
+        variant={login && password ? 'success' : undefined}
+        text="Zaloguj"
+      />
     </form>
   );
 };

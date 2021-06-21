@@ -1,0 +1,30 @@
+.button {
+  height: 55px;
+  width: 250px;
+  box-shadow: var(--shadow-m);
+  border-radius: var(--xl-border-radius);
+  border: none;
+  padding: 0px 15px;
+  font-size: var(--s-font-size);
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.default {
+  background-color: var(--salmon);
+}
+
+.success {
+  background-color: var(--green);
+}
+
+.error {
+  background-color: var(--red);
+}
