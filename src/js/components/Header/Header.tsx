@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useLocation } from 'react-router';
 
 import { Tab } from '../common';
 import Icon from '../common/Icon';
+import { isAuthenticated } from '../../API/auth';
+import logo from '../../../images/money.png';
 
 import styles from './Header.module.css';
-import { useLocation } from 'react-router';
-import { isAuthenticated } from '../../API/auth';
 
 enum HeaderState {
   Stocks = 'stocks',
@@ -18,7 +19,7 @@ const Header = () => {
   const { pathname } = useLocation<{ pathname: string }>();
   return (
     <div className={styles.header}>
-      <Icon url="../../../images/money.png" className={styles.icon} />
+      <Icon url={logo} className={styles.icon} />
       <div className={styles.navigationTabs}>
         <Tab
           text="Notowania"
