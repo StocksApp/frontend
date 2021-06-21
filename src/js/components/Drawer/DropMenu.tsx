@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { GoTriangleDown } from 'react-icons/go';
 import { GoTriangleRight } from 'react-icons/go';
+import { Link, useLocation } from 'react-router-dom';
 
 import classNames from 'classnames/bind';
 import styles from './DropMenu.module.css';
-import { Link, useLocation } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
