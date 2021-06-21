@@ -3,6 +3,7 @@
   --darkest-gray: #454545;
   --gray: #7A7A7A;
   --light-gray: #C4C4C4;
+  --box-shadow: #00000040;
 
   --lighter-gray: #F2EEEE;
   --lightest-gray: #FAFDFB;
@@ -10,4 +11,6 @@
   --salmon: #E8C8C8;
   --background-brown: #ECE9E9;
   --white: #FFFFFF;
+
+  --green: #AAFFAA;
 }

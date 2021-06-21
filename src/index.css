@@ -2,6 +2,7 @@
 @import './css/tokens/colors.css';
 @import './css/tokens/fonts.css';
 @import './css/tokens/borders.css';
+@import './css/tokens/shadows.css';
 
 
 body {

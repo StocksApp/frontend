@@ -1,0 +1,43 @@
+.wrapper {
+  display: grid;
+  grid-auto-columns: 20% 80%;
+}
+.tab {
+  grid-column: 1/3;
+  background-color: var(--light-gray);
+  font-size: var(--s-font-size);
+  border: var(--normal-border);
+  border-radius: 0;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.withMarker {
+  display: grid;
+  grid-auto-columns: 20% 80%;
+}
+
+.withMarker > div {
+  grid-column: 2;
+}
+
+.withMarker > svg {
+  grid-column: 1;
+}
+
+
+
+
+
+.item {
+  grid-column: 2;
+  font-size: var(--xxxs-font-size);
+  color: inherit;
+  text-decoration: none;
+  padding: 7px 0;
+
+}
+
+.selected {
+  background-color: var(--salmon);
+}

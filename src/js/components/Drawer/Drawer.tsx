@@ -1,34 +1,50 @@
 import React from 'react';
-
-import { isAuthenticated } from '../../API/auth';
-
-import styles from './Drawer.module.css';
-import { Tab } from '../common';
 import { useLocation } from 'react-router';
 
+import { isAuthenticated } from '../../API/auth';
+import { DropMenu } from '.';
+import logo from './stocksAppIco.jpeg';
+
+import styles from './Drawer.module.css';
+
 const tabs = [
-  { id: 'game', text: 'Rozgrywka' },
-  { id: 'wallet', text: 'Portfel' },
-  { id: 'order', text: 'Zlecenia' },
-  { id: 'profile', text: 'Profil' },
+  {
+    id: 'game',
+    text: 'Rozgrywka',
+    url: 'game',
+    items: [
+      { id: 'single', url: 'game', text: 'Jednoosobowa' },
+      { id: 'history', url: 'history', text: 'Historia' },
+    ],
+  },
+  {
+    id: 'wallet',
+    text: 'Portfel',
+    url: 'wallet',
+    items: [
+      { id: 'summary', url: 'summary', text: 'Podsumowanie' },
+      { id: 'history', url: 'history', text: 'Historia transakcji' },
+    ],
+  },
+  {
+    id: 'order',
+    text: 'Zlecenie',
+    url: 'order',
+    items: [
+      { id: 'current', url: 'current', text: 'Obecne zlecenia' },
+      { id: 'history', url: 'history', text: 'Historia zleceń' },
+    ],
+  },
 ];
 
 const Drawer = () => {
-  const { pathname } = useLocation<{ pathname: string }>();
-  console.log(isAuthenticated());
   if (!isAuthenticated()) return null;
   return (
     <div className={styles.drawer}>
-      <img src="./stocksAppIco.jpeg" className={styles.icon} />
+      <img src={logo} className={styles.icon} />
       <div className={styles.userName}>Nazwa Usera</div>
-      {tabs.map(({ id, text }) => (
-        <Tab
-          key={`drawer_tab_${id}`}
-          text={text}
-          url={`/${id}`}
-          selected={pathname.includes(id)}
-          className={styles.category}
-        />
+      {tabs.map((menuProps) => (
+        <DropMenu key={menuProps.id} {...menuProps} />
       ))}
     </div>
   );
