@@ -2,12 +2,13 @@ import React from 'react';
 import { BiSad } from 'react-icons/bi';
 
 import styles from './Forum.module.css';
+import { CentralWrapper } from '../components/common';
 
 const Forum = () => (
-  <div className={styles.wrapper}>
+  <CentralWrapper>
     <h1>Tu będzie forum</h1>
     <BiSad className={styles.icon} />
-  </div>
+  </CentralWrapper>
 );
 
 export default Forum;
