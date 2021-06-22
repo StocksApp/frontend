@@ -6,6 +6,7 @@
   --box-shadow: #00000040;
 
   --lighter-gray: #F2EEEE;
+  --lighter-table-gray: #F3F3F3;
   --lightest-gray: #FAFDFB;
 
   --salmon: #E8C8C8;
@@ -13,4 +14,5 @@
   --white: #FFFFFF;
 
   --green: #AAFFAA;
+  --blue-green: #009879;
 }

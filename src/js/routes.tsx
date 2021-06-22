@@ -2,8 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import AuthorizedRoute from './components/routes/AuthorizedRoute';
-import { Login } from './views/Login';
-import { Forum } from './views/Forum';
+import { Login, Forum, Stocks } from './views';
 
 const Routes = () => {
   return (
@@ -12,7 +11,7 @@ const Routes = () => {
         <Login />
       </Route>
       <Route path="/stocks">
-        <Login />
+        <Stocks />
       </Route>
       <Route path="/analysis">
         <Login />

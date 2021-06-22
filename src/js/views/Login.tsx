@@ -1,12 +1,13 @@
 import React from 'react';
 import { LoginForm } from '../components/Login';
+import { CentralWrapper } from '../components/common';
 
 const Login = () => {
   return (
-    <div>
+    <CentralWrapper>
       <h1>Zaloguj się</h1>
       <LoginForm />
-    </div>
+    </CentralWrapper>
   );
 };
 
