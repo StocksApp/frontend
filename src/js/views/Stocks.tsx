@@ -44,7 +44,6 @@ const Stocks = () => {
 
     return { data, columns };
   }, []);
-  console.log(data, columns);
   return (
     <CentralWrapper>
       <Table data={data} columns={columns} />

@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import AuthorizedRoute from './components/routes/AuthorizedRoute';
-import { Login, Forum, Stocks } from './views';
+import { Login, Forum, Stocks, Analysis } from './views';
 
 const Routes = () => {
   return (
@@ -14,7 +14,7 @@ const Routes = () => {
         <Stocks />
       </Route>
       <Route path="/analysis">
-        <Login />
+        <Analysis />
       </Route>
       <Route path="/forum">
         <Forum />

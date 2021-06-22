@@ -22,8 +22,13 @@
   background-color: var(--lighter-table-gray);
 }
 
-.body tr td:first-child {
+.link {
   cursor: pointer;
+}
+
+.link a {
+  text-decoration: none;
+  color: inherit;
 }
 
 tr:first-child th:first-child { border-top-left-radius: var(--m-border-radius); }

@@ -11,12 +11,14 @@ export type TableProps<D extends Record<string, unknown>> = {
   data: D[];
   columns: { Header: string; accessor: keyof D }[];
   className?: string;
+  withLink?: boolean;
 };
 
 const Table = <D extends Record<string, unknown>>({
   data,
   columns,
   className,
+  withLink = true,
 }: TableProps<D>) => {
   const {
     getTableProps,
@@ -50,8 +52,11 @@ const Table = <D extends Record<string, unknown>>({
               {row.cells.map((cell, index) => {
                 return (
                   // eslint-disable-next-line react/jsx-key
-                  <td {...cell.getCellProps()} className={cx('cell')}>
-                    {index === 0 ? (
+                  <td
+                    {...cell.getCellProps()}
+                    className={cx('cell', { link: index === 0 && withLink })}
+                  >
+                    {index === 0 && withLink ? (
                       <Link to={`/analysis/${cell.value}`}>
                         {cell.render('Cell')}
                       </Link>
