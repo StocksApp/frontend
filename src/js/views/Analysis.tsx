@@ -4,11 +4,7 @@ import { CentralWrapper } from '../components/common';
 import { AnalysisChart } from '../components/Analysis';
 
 const Analysis = () => {
-  return (
-    <CentralWrapper>
-      <AnalysisChart />
-    </CentralWrapper>
-  );
+  return <AnalysisChart />;
 };
 
 export default Analysis;

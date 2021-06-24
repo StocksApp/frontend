@@ -44,11 +44,7 @@ const Stocks = () => {
 
     return { data, columns };
   }, []);
-  return (
-    <CentralWrapper>
-      <Table data={data} columns={columns} />
-    </CentralWrapper>
-  );
+  return <Table data={data} columns={columns} />;
 };
 
 export default Stocks;

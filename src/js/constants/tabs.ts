@@ -4,7 +4,7 @@ export default [
     text: 'Rozgrywka',
     url: 'game',
     items: [
-      { id: 'single', url: 'game', text: 'Jednoosobowa' },
+      { id: 'single', url: 'single', text: 'Jednoosobowa' },
       { id: 'history', url: 'history', text: 'Historia' },
     ],
   },

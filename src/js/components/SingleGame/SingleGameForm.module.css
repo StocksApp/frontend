@@ -1,0 +1,23 @@
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center center;
+  padding-left: 10%;
+  padding-right: 22%;
+}
+
+.submitButton {
+  margin-top: auto;
+}
+
+.child {
+  justify-self: right;
+  margin-bottom: 35px;
+}
