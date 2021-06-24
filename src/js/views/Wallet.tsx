@@ -1,8 +1,9 @@
 import React from 'react';
 
-import styles from './Wallet.module.css';
 import { Assets, Charts, Summary } from '../components/Wallet';
 import { SearchBar } from '../components/common';
+
+import styles from './Wallet.module.css';
 
 const data = {
   GPW: {

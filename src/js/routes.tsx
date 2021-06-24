@@ -2,7 +2,15 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import AuthorizedRoute from './components/routes/AuthorizedRoute';
-import { Login, Forum, Stocks, Analysis, SingleGame, Wallet } from './views';
+import {
+  Login,
+  Forum,
+  Stocks,
+  Analysis,
+  SingleGame,
+  Wallet,
+  CurrentOrders,
+} from './views';
 import { CentralWrapper } from './components/common';
 
 const Routes = () => {
@@ -29,6 +37,11 @@ const Routes = () => {
         <AuthorizedRoute path="/wallet">
           <Route path="/wallet/summary">
             <Wallet />
+          </Route>
+        </AuthorizedRoute>
+        <AuthorizedRoute path="/order">
+          <Route path="/order/current">
+            <CurrentOrders />
           </Route>
         </AuthorizedRoute>
       </CentralWrapper>

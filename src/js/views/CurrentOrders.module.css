@@ -1,0 +1,25 @@
+.wrapper {
+  overflow: auto;
+  width: 100%;
+  display: grid;
+  grid-template-areas: 
+  "header button"
+  "table table";
+  row-gap: 30px;
+}
+
+.header {
+  grid-area: header;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.button {
+  grid-area: button;
+  justify-self: right;
+  margin-right: 20px;
+}
+
+.table {
+  grid-area: table;
+}

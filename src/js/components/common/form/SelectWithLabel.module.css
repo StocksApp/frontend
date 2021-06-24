@@ -8,4 +8,5 @@
   flex-grow: 0;
   font-size: var(--s-font-size);
   padding-right: 12px;
+  align-self: center;
 }
