@@ -1,0 +1,36 @@
+.wrapper {
+  overflow: auto;
+  width: 100%;
+  display: grid;
+  grid-template-areas: 
+  "header searchbar"
+  "table table"
+  "charts charts"
+  "summary summary";
+}
+
+.header {
+  grid-area: header;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.searchbar {
+  grid-area: searchbar;
+  margin-right: 20px;
+}
+
+.table {
+  grid-area: table;
+}
+
+.charts {
+  grid-area: charts;
+  margin: 45px;
+}
+
+.summary {
+  grid-area: summary;
+  max-width: 50%;
+  justify-self: center;
+}

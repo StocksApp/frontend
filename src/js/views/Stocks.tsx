@@ -1,5 +1,5 @@
 import React from 'react';
-import { CentralWrapper, Table } from '../components/common';
+import { Table } from '../components/common';
 
 const names = {
   name: 'Nazwa',

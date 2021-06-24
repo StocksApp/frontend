@@ -1,10 +1,14 @@
 import React from 'react';
 
-import { CentralWrapper } from '../components/common';
 import { AnalysisChart } from '../components/Analysis';
+import { Card } from '../components/common';
 
 const Analysis = () => {
-  return <AnalysisChart />;
+  return (
+    <Card>
+      <AnalysisChart />
+    </Card>
+  );
 };
 
 export default Analysis;
