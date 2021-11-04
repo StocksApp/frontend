@@ -1,0 +1,6 @@
+.button {
+  font-size: 40px;
+  color: var(--green);
+  margin-left: auto;
+  cursor: pointer;
+}

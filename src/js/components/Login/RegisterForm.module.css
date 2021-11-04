@@ -1,0 +1,17 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form > input {
+  margin-bottom: 20px;
+}
+
+.form > label {
+  margin-bottom: 5px;
+  align-self: flex-start;
+}
+
+.link {
+  text-align: left;
+}

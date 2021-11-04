@@ -1,0 +1,21 @@
+.wrapper {
+  display: grid;
+  grid-template-areas:
+  "select tickerSelect"
+  "chart chart";
+  column-gap: 50px;
+  row-gap: 20px;
+  width: 100%;
+}
+
+.select {
+  grid-area: select;
+}
+
+.tickerSelect {
+  grid-area: tickerSelect;
+}
+
+.chart {
+  grid-area: chart;
+}

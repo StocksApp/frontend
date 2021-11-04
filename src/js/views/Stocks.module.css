@@ -1,0 +1,21 @@
+.wrapper {
+  display: grid;
+  grid-template-areas:
+  "select searchbar"
+  "table table";
+  column-gap: 50px;
+  row-gap: 20px;
+  width: 100%;
+}
+
+.select {
+  grid-area: select;
+}
+
+.searchbar {
+  grid-area: searchbar;
+}
+
+.table {
+  grid-area: table;
+}
