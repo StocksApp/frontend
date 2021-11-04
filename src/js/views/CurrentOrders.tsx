@@ -17,7 +17,7 @@ const CurrentOrders = () => {
         }
         modal
       >
-        <NewOrderModal />
+        {(close: () => void) => <NewOrderModal close={close} />}
       </Popup>
       <Orders className={styles.table} />
     </div>

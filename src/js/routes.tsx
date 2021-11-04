@@ -10,6 +10,7 @@ import {
   SingleGame,
   Wallet,
   CurrentOrders,
+  Register,
 } from './views';
 import { CentralWrapper } from './components/common';
 
@@ -20,10 +21,13 @@ const Routes = () => {
         <Route path="/login">
           <Login />
         </Route>
+        <Route path="/register">
+          <Register />
+        </Route>
         <Route path="/stocks">
           <Stocks />
         </Route>
-        <Route path="/analysis">
+        <Route path="/analysis/:stock?/:ticker?">
           <Analysis />
         </Route>
         <Route path="/forum">

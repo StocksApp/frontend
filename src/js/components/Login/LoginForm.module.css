@@ -11,3 +11,7 @@
   margin-bottom: 5px;
   align-self: flex-start;
 }
+
+.link {
+  text-align: left;
+}

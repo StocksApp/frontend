@@ -1,16 +1,52 @@
-import React from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import ReactApexChart from 'react-apexcharts';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+
+import * as StocksAPI from '../../API/stocks';
+import { DailyAsset } from '../../models/interfaces';
+
+dayjs.extend(customParseFormat);
 
 type props = React.ComponentProps<typeof ReactApexChart>;
 
-const AnalysisChart = () => {
-  const series: { data: { x: Date; y: number[] }[] }[] = [{ data: [] }];
-  for (let i = 0; i < 50; i++) {
-    series[0].data.push({
-      x: new Date(2016 + i / 365, (i / 31) % 12, i % 28),
-      y: [51.98 + i, 56.29 + i, 51.59 + i, 53.85 + i],
-    });
-  }
+const AnalysisChart = ({
+  className,
+  ticker,
+  stock,
+}: {
+  className: string;
+  ticker: string;
+  stock: string;
+}) => {
+  const [assets, setAssets] = useState<DailyAsset[]>([]);
+
+  useEffect(() => {
+    if (!ticker) return;
+    const fetchTickerStocks = async () => {
+      try {
+        const response = await StocksAPI.getTickerStocksRange(
+          stock,
+          ticker,
+          '20100301',
+          '20100501'
+        );
+        setAssets(response);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    fetchTickerStocks();
+  }, [ticker]);
+
+  const series = useMemo(() => {
+    const data = assets.map((asset) => ({
+      x: dayjs(asset.name, 'YYYYMMDD').toDate(),
+      y: [asset.open, asset.high, asset.low, asset.close],
+    }));
+    return [{ data: data }];
+  }, [assets]);
   const options = {
     chart: {
       type: 'candlestick',
@@ -33,9 +69,9 @@ const AnalysisChart = () => {
     <ReactApexChart
       options={options}
       series={series}
-      height={'620px'}
-      width={'1400px'}
+      height={'580px'}
       type="candlestick"
+      className={className}
     />
   );
 };

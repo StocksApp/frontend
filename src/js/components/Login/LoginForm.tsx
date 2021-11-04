@@ -5,6 +5,7 @@ import { loginUser } from '../../API/auth';
 import styles from './LoginForm.module.css';
 import { Input, SubmitButton } from '../common/inputs';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const LoginForm = () => {
   const [password, setPassword] = useState('');
@@ -43,6 +44,9 @@ const LoginForm = () => {
         variant={login && password ? 'success' : undefined}
         text="Zaloguj"
       />
+      <Link className={styles.link} to="/register">
+        Zarejestruj się
+      </Link>
     </form>
   );
 };

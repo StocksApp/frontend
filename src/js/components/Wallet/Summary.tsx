@@ -27,7 +27,7 @@ const Summary = ({
         <div>Zablokowane środki</div>
         <div>{`${blockedFunds} zł`}</div>
         <div>Łącznie</div>
-        <div>{`${assetValue + assetValue + blockedFunds} zł`}</div>
+        <div>{`${assetValue + walletFunds + blockedFunds} zł`}</div>
       </div>
     </Card>
   );

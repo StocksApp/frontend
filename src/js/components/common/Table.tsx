@@ -11,14 +11,14 @@ export type TableProps<D extends Record<string, unknown>> = {
   data: D[];
   columns: { Header: string; accessor: keyof D }[];
   className?: string;
-  withLink?: boolean;
+  withLink?: string;
 };
 
 const Table = <D extends Record<string, unknown>>({
   data,
   columns,
   className,
-  withLink = true,
+  withLink,
 }: TableProps<D>) => {
   const {
     getTableProps,
@@ -57,7 +57,7 @@ const Table = <D extends Record<string, unknown>>({
                     className={cx('cell', { link: index === 0 && withLink })}
                   >
                     {index === 0 && withLink ? (
-                      <Link to={`/analysis/${cell.value}`}>
+                      <Link to={`/analysis/${withLink}/${cell.value}`}>
                         {cell.render('Cell')}
                       </Link>
                     ) : (

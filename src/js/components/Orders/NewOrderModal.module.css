@@ -30,6 +30,14 @@
 
 .input {
   margin-left: 12px;
+  padding-right: 55px;
+  
   width: 60%;
   font-size: var(--s-font-size);
+  text-align: center;
+}
+
+.disabled {
+  cursor: not-allowed;
+  background-color: var(--lighter-gray);
 }

@@ -1,50 +1,88 @@
-import React from 'react';
-import { Table } from '../components/common';
+import React, { useState, useEffect, useMemo } from 'react';
+import Select from 'react-select';
+
+import { Table, SearchBar } from '../components/common';
+import * as StocksAPI from '../API/stocks';
+import { DailyAsset } from '../models/interfaces';
 
 const names = {
   name: 'Nazwa',
-  change: 'Zmiana %',
-  lastWeek: 'Ostatni tydzień',
-  openValue: 'Cena Otwarcia',
-  lowestValue: 'Najniższa Cena',
-  highestValue: 'Najwyższa Cena',
-  closeValue: 'Cena zamknięcia',
-  quantity: 'Wolumen',
+  // change: 'Zmiana %',
+  open: 'Cena Otwarcia',
+  low: 'Najniższa Cena',
+  high: 'Najwyższa Cena',
+  close: 'Cena zamknięcia',
+  vol: 'Wolumen',
 };
 
-const Stocks = () => {
-  const { data, columns } = React.useMemo(() => {
-    const data = [
-      {
-        name: 'CDProject',
-        change: '-0.6%',
-        lastWeek: '',
-        openValue: 120.22,
-        lowestValue: 100.22,
-        highestValue: 150.22,
-        closeValue: 140.22,
-        quantity: 10006,
-      },
-      {
-        name: 'Ojcowizna',
-        change: '20%',
-        lastWeek: '',
-        openValue: 220.22,
-        lowestValue: 220.22,
-        highestValue: 650.22,
-        closeValue: 520.22,
-        quantity: 50006,
-      },
-    ];
+import styles from './Stocks.module.css';
 
-    const columns = Object.keys(data[0]).map((key) => ({
+const Stocks = () => {
+  const [markets, setMarkets] = useState<{ market: string; name: string }[]>(
+    []
+  );
+  const [selectedMarket, setSelectedMarket] = useState<string>();
+  const [tableData, setTableData] = useState<DailyAsset[]>([]);
+
+  useEffect(() => {
+    const fetchMarkets = async () => {
+      try {
+        const response = await StocksAPI.getStocks();
+        setMarkets(
+          response.map((item) => ({ name: item.name, market: item.ticker }))
+        );
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchMarkets();
+  }, []);
+  useEffect(() => {
+    if (!selectedMarket) return;
+    const fetchDailyStocks = async () => {
+      try {
+        const response = await StocksAPI.getStocksForDay(
+          selectedMarket,
+          '20100401'
+        );
+        setTableData(response);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    fetchDailyStocks();
+  }, [selectedMarket]);
+
+  const { data, columns } = useMemo(() => {
+    const columns = Object.keys(names).map((key) => ({
       Header: names[key as keyof typeof names],
       accessor: key as keyof typeof names,
     }));
 
-    return { data, columns };
-  }, []);
-  return <Table data={data} columns={columns} />;
+    return { data: tableData, columns };
+  }, [tableData]);
+
+  if (markets.length === 0) return <div>Loading</div>;
+  return (
+    <div className={styles.wrapper}>
+      <Select
+        options={markets.map((market) => ({
+          label: market.name,
+          value: market.market,
+        }))}
+        onChange={(market) => market && setSelectedMarket(market?.value)}
+        className={styles.select}
+      />
+      <SearchBar className={styles.searchbar} />
+      <Table
+        data={data}
+        columns={columns}
+        className={styles.table}
+        withLink={selectedMarket}
+      />
+    </div>
+  );
 };
 
 export default Stocks;

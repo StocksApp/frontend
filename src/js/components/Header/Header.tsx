@@ -7,6 +7,7 @@ import { isAuthenticated } from '../../API/auth';
 import logo from '../../../images/money.png';
 
 import styles from './Header.module.css';
+import NextTurn from './NextTurn';
 
 enum HeaderState {
   Stocks = 'stocks',
@@ -37,12 +38,17 @@ const Header = () => {
           selected={pathname.includes(HeaderState.Forum)}
         />
       </div>
-      {!isAuthenticated() && (
+      {isAuthenticated() ? (
+        <NextTurn />
+      ) : (
         <Tab
           text="Login"
           url="/login"
           className={styles.rightContent}
-          selected={pathname.includes(HeaderState.Login)}
+          selected={
+            pathname.includes(HeaderState.Login) ||
+            pathname.includes('register')
+          }
         />
       )}
     </div>
